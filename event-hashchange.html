@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5 History State Management</title>
+		<style>
+			div, p, body { padding: 0; margin: 0; }
+			body { font: 11px/1.6 "Segoe UI"; color: #222; }
+			
+			.container { width: 960px; margin: 0 auto; }
+			.content { padding: 15px 0; }
+			
+			#logs { padding: 10px; font-size: 18px; text-shadow: 0 1px 0 #fff; background: #f1f1f1; box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); }
+		</style>
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script>
+		
+			$(function() {
+				var writeLog = function(log) {
+					$('#logs').html('<p>' + log + '</p>');
+				};
+				
+				$('#nav').on('click', 'a', function() {
+					var hash = $(this).attr('href').substring(1),
+						url = /^(http:.+)\/.+/.exec(location.href)[1] + '/' + hash;
+					
+					history.pushState({url: url}, hash, hash + '.html');
+					writeLog(url);
+					
+					return false;
+				});
+				
+				$(window).on('popstate', function(event) {
+					var state = event.originalEvent.state;
+					
+					if (state) {
+						writeLog(state.url);
+					} else {
+						writeLog('Default');
+					}
+				});
+				
+				writeLog('Default');
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<ul id="nav">
+					<li>
+						<a href="#link1">Link 1</a>
+					</li>
+					<li>
+						<a href="#link2">Link 2</a>
+					</li>
+					<li>
+						<a href="#link3">Link 3</a>
+					</li>
+					<li>
+						<a href="#link4">Link 4</a>
+					</li>
+				</ul>
+				
+				<div id="logs">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

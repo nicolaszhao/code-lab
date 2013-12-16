@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1,
+		"src": "/demo-tmp/backbone/images/image1.jpg",
+		"intro": "photo description 1"
+	},
+	{
+		"id": 2,
+		"src": "/demo-tmp/backbone/images/image2.jpg",
+		"intro": "photo description 2"
+	}
+]
