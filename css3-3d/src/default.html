@@ -2,223 +2,92 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<title></title>
-		<style>
-			* {
-				padding: 0;
-				margin: 0;
-			}
-			
-			ul {
-				list-style: none;
-			}
-			
-			html, body {
-				width: 100%;
-				height: 100%;
-			}
-			
-			body {
-				font-family: Verdana;
-			}
-			
-			.box {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				-webkit-perspective: 1000px;
-				
-			}
-			
-			#box2 {
-				display: none;
-			}
-			
-			.box-item-wrapper {
-				width: 200px;
-				height: 200px;
-				margin: -100px 0 0 -100px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				-webkit-transform-style: preserve-3d;
-				-webkit-animation: auto-rotate 10s linear infinite;
-			}
-			
-			.box-item {
-				width: 200px;
-				height: 200px;
-				position: absolute;
-				
-				font-size: 50px;
-				text-align: center;
-				line-height: 200px;
-				color: #269ABC;
-				border: solid 1px #269ABC;
-				-webkit-transform-style: preserve-3d;
-			}
-			
-			.box-item:first-child {
-				width: 160px;
-				height: 160px;
-				top: 20px;
-				left: 20px;
-				line-height: 160px;
-				-webkit-transform: translateZ(20px);
-			}
-			
-			.box-item-last {
-				width: 240px;
-				height: 240px;
-				top: -20px;
-				left: -20px;
-				line-height: 240px;
-				-webkit-transform: translateZ(-20px);
-			}
-			
-			.box-circle {
-				width: 800px;
-				height: 800px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin: -400px 0 0 -400px;
-				border-radius: 50%;
-				border: solid 4px #31B0D5;
-				border-width: 4px 0 0 0;
-				
-				
-				-webkit-animation: round 3s linear infinite;
-				
-				-webkit-transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
-			}
-			
-			.buttons {
-				width: 200px;
-				margin-left: -100px;
-				position: absolute;
-				bottom: 30px;
-				left: 50%;
-				z-index: 9;
-				text-align: center;
-			}
-			
-			
-			@-webkit-keyframes auto-rotate {
-				from {
-					-webkit-transform: rotateY(0deg);
-				}
-				to {
-					-webkit-transform: rotateY(360deg);
-				}
-			}
-			
-			@-webkit-keyframes round {
-				from {
-					-webkit-transform: rotateX(90deg) rotateY(-10deg) rotateZ(0deg);
-				}
-				to {
-					-webkit-transform: rotateX(90deg) rotateY(-10deg) rotateZ(360deg);
-				}
-			}
-			
-			@-webkit-keyframes box {
-				from {
-					-webkit-transform: rotateY(0deg);
-				}
-				to {
-					-webkit-transform: rotateY(360deg);
-				}
-			}
-			
-			.solid-box {
-				width: 120px;
-				height: 120px;
-				margin-left: -60px;
-				position: absolute;
-				top: 60%;
-				left: 20%;
-				
-				-webkit-transform-style: preserve-3d;
-				
-				-webkit-animation: box 10s linear infinite;
-			}
-			
-			.solid-box-side {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				-webkit-transform-style: preserve-3d;
-			}
-			
-			.solid-box-front {
-				background: #222;
-				-webkit-transform: translateZ(60px);
-			}
-			
-			.solid-box-back {
-				background: #080808;
-				-webkit-transform: translateZ(-60px);
-			}
-			
-			.solid-box-left {
-				background: #101010;
-				-webkit-transform: translateZ(60px) rotateY(90deg);
-				-webkit-transform-origin: 0 50%;
-			}
-			
-			.solid-box-right {
-				background: #101010;
-				-webkit-transform: translateZ(60px) rotateY(-90deg);
-				-webkit-transform-origin: 100% 50%;
-			}
-			
-			.solid-box-top {
-				background: #ccc;
-				-webkit-transform: translateZ(60px) rotateX(-90deg);
-				-webkit-transform-origin: 50% 0;
-			}
-			
-			.solid-box-bottom {
-				background: #ccc;
-				-webkit-transform: translateZ(60px) rotateX(90deg);
-				-webkit-transform-origin: 50% 100%;
-			}
-		</style>
-		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<title>CSS3 3D Animation</title>
+		<link rel="stylesheet" href="theme/css3-3d.css" />
+		<script src="js/jquery-1.11.1.js"></script>
 		<script>
-			
+			$(function() {
+				var anim = function() {
+					var $stateContainer = $('.stage-container'),
+						index = 0,
+						len = $stateContainer.length,
+						
+						anim = {
+							start: function() {
+								$stateContainer.eq(0).addClass('stage-state-in');
+							},
+							
+							prev: function() {
+								if (index - 1 < 0) {
+									return;
+								}
+								
+								$stateContainer.eq(index).removeClass('stage-state-in');
+								
+								$stateContainer.eq(--index).removeClass('stage-state-out')
+									.addClass('stage-state-in');
+							},
+							
+							next: function() {
+								if (index + 1 > len - 1) {
+									return;
+								}
+
+								$stateContainer.eq(index).removeClass('stage-state-in')
+									.addClass('stage-state-out');
+									
+								$stateContainer.eq(++index).addClass('stage-state-in');
+							}
+						};
+					
+					return anim;
+				};
+				
+				var action = anim();
+				
+				action.start();
+				
+				$('.buttons').on('click', '.button-prev', function(event) {
+					event.preventDefault();
+					action.prev();
+				}).on('click', '.button-next', function(event) {
+					event.preventDefault();
+					action.next();
+				});
+			});
 		</script>
 	</head>
 	<body>
-		<div id="box1" class="box">
-			<div class="box-item-wrapper">
-				<div class="box-item box-item-first">1</div>
-				<div class="box-item">2</div>
-				<div class="box-item box-item-last">3</div>
-				
-				<div class="box-circle"></div>
+		<div class="stage">
+			<div id="stage-container-1" class="stage-container">
+				<div class="solid-box-wrapper">
+					<div class="solid-box">
+						<div class="solid-box-side solid-box-front"></div>
+						<div class="solid-box-side solid-box-back"></div>
+						<div class="solid-box-side solid-box-top"></div>
+						<div class="solid-box-side solid-box-bottom"></div>
+						<div class="solid-box-side solid-box-left"></div>
+						<div class="solid-box-side solid-box-right"></div>
+					</div>
+				</div>
+				<div class="rotary-plate rotary-plate-1">
+					<span class="rotary-plate-core"></span>
+				</div>
+				<div class="rotary-plate rotary-plate-2">
+					<span class="rotary-plate-core"></span>
+				</div>
 			</div>
-			
-			<div class="solid-box">
-				<div class="solid-box-side solid-box-front"></div>
-				<div class="solid-box-side solid-box-back"></div>
-				<div class="solid-box-side solid-box-top"></div>
-				<div class="solid-box-side solid-box-bottom"></div>
-				<div class="solid-box-side solid-box-left"></div>
-				<div class="solid-box-side solid-box-right"></div>
+			<div id="stage-container-2" class="stage-container">
+				<div class="rotary-plate-mini-pipe">
+					<div class="rotary-plate-mini rotary-plate-mini-left"></div>
+					<div class="rotary-plate-mini rotary-plate-mini-center"></div>
+					<div class="rotary-plate-mini rotary-plate-mini-right"></div>
+				</div>
 			</div>
-		</div>
-		<div id="box2" class="box">
-			<div class="box-item"></div>
 		</div>
 		<div class="buttons">
-			<button type="button" id="button1">box1</button>
-			<button type="button" id="button2">box2</button>
+			<a class="button-prev" href="">&lt;</a>
+			<a class="button-next" href="">&gt;</a>
 		</div>
 	</body>
 </html>
