@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			.div1 {
+				width: 100%;
+				position: relative;
+			}
+			.div2 {
+				width: 100%;
+				margin: 0 auto;
+			}
+			.div2 a {
+				display: block;
+				margin: 10px;
+			}
+			.jqDockWrap {
+				margin: 0 auto;
+			}
+		</style>
+		<script src="jquery-1.11.1.js"></script>
+		<script src="jquery.jqDock.js"></script>
+		<script>
+			$(function() {
+				$('.div2').jqDock({
+					size: 120,
+					distance: 360,
+					flow: '.div1'
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="div1">
+			<div class="div2">
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+				<a href=""><img src="bg-stage-4-icon1.png" /></a>
+			</div>
+		</div>
+	</body>
+</html>

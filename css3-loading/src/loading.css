@@ -10,11 +10,20 @@
 	text-indent: -999px;
 	background: url(img/loading.png) no-repeat;
 	
-	-webkit-animation: loading 1s step-start infinite;
-    -moz-animation: loading 1s step-start infinite;
-    -ms-animation: loading 1s step-start infinite;
-    -o-animation: loading 1s step-start infinite;
-    animation: loading 1s step-start infinite;
+	-webkit-animation: loading2 1s linear infinite;
+    -moz-animation: loading2 1s linear infinite;
+    -ms-animation: loading2 1s linear infinite;
+    -o-animation: loading2 1s linear infinite;
+    animation: loading2 1s linear infinite;
+}
+
+@-webkit-keyframes loading2 {
+	from {
+		-webkit-transform: rotate(0) translateZ(0);
+	}
+	to {
+		-webkit-transform: rotate(360deg) translateZ(0);
+	}
 }
 
 @-webkit-keyframes loading {
