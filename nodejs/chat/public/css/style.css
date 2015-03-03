@@ -1,0 +1,35 @@
+body, div, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 14px/1 Verdana;
+	color: #333;
+}
+
+a {
+	color: #00b7ff;
+}
+
+#container {
+	width: 100%;
+}
+
+#content {
+	width: 980px;
+	margin: 0 auto;
+}
+
+#room {
+	background: #ddd;
+	margin-bottom: 15px;
+}
+
+#messages {
+	width: 690px;
+	height: 300px;
+	overflow: auto;
+	background: #eee;
+	margin: 0 10px 15px 0;
+}
