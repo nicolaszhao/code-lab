@@ -29,7 +29,7 @@ var joinRoom = function(socket, room) {
 		text: nickNames[socket.id] + ' has joined ' + room + '.'
 	});
 	
-	usersInRoom = io.sockets.clients(room);
+	usersInRoom = io.sockets.client(room);
 	if (usersInRoom.length > 1) {
 		usersInRoomSummary  = 'Users currently in ' + room + ': ';
 		for (var index in usersInRoom) {
