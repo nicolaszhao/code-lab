@@ -84,10 +84,22 @@ html, body {
 	height: 100%;
 	border: solid 10px #FFE740;
 	border-radius: 50%;
+	position: relative;
+}
+
+.rotary-plate .ball {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: #0000CC;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: rotateX(120deg) translateY(-50%);
 }
 
 .rotary-plate-1 {
-	-webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	//-webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 }
 
 .rotary-plate-2 {
@@ -96,13 +108,11 @@ html, body {
 
 .rotary-plate-1 .rotary-plate-core {
 	margin: -10px 0 0 0;
-	border-width: 10px 0 0 0;
 	-webkit-animation: rotary-plate-1 4s linear infinite;
 }
 
 .rotary-plate-2 .rotary-plate-core {
 	margin: 0 0 -10px 0;
-	border-width: 0 0 10px 0;
 	-webkit-animation: rotary-plate-2 4s linear infinite;
 }
 
