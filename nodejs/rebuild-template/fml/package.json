@@ -1,0 +1,31 @@
+{
+  "name": "fml",
+  "description": "fuck inject xml config file and build it",
+  "homepage": "http://liulanqi.baidu.com/",
+  "main": "fml.js",
+  "version": "1.0.1",
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "maintainers": [
+    {
+      "name": "zhangyu24",
+      "email": "zhangyu24@baidu.com"
+    }
+  ],
+  "bin": {
+    "fml": "bin/fml"
+  },
+  "license": "BSD",
+  "scripts": {
+    "test": ""
+  },
+  "directories": {},
+  "dependencies": {
+    "commander": "^2.9.0",
+    "uglify-js": "^2.4.23"
+  },
+  "devDependencies": {
+    "commander": "^2.9.0"
+  }
+}

@@ -1,4 +1,5 @@
 .project
+.idea/
 _tmp
 _test
 node_modules

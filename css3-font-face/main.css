@@ -1,0 +1,16 @@
+@font-face {
+	font-family: 'beaconscript';
+	src: url('fonts/beacon-webfont.eot');
+	src: url('fonts/beacon-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/beacon-webfont.woff2') format('woff2'),
+		url('fonts/beacon-webfont.woff') format('woff'),
+		url('fonts/beacon-webfont.ttf') format('truetype'),
+		url('fonts/beacon-webfont.svg#beaconscript') format('svg');
+
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font: 28px/1.2 beaconscript;
+}
