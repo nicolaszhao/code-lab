@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		div {
+			width: 60%;
+			height: 60%;
+			border: solid 1px #000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex: 1;
+		}
+
+		#div1 {
+			width: 300px;
+			height: 300px;
+			margin: 0;
+			position: static;
+		}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var div = document.querySelectorAll('div'),
+				els = [];
+
+			[].push.apply(els, div);
+
+			els.forEach(function(el) {
+				el.addEventListener('click', function() {
+					console.log(this.id);
+				}, false);
+			});
+		}, false);
+	</script>
+</head>
+<body>
+
+<div id="div1">
+	div1
+	<div id="div2">
+		div2
+		<div id="div3">div3</div>
+	</div>
+</div>
+
+</body>
+</html>
