@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		#anim {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 100px;
+			border: solid 1px #2e2e2e;
+			background: #3278b3;
+		}
+	</style>
+	<script>
+		var css = function(el, prop) {
+			var style = document.defaultView.getComputedStyle(el);
+			return style.getPropertyValue(prop);
+		};
+
+		var createTime = function() {
+			return +(new Date());
+		};
+
+		var animate = function(el, prop, end, duration, step, done) {
+			var startTime = createTime(),
+				start = parseFloat(css(el, prop));
+
+			var tick = function(timestamp) {
+				var remaining = Math.max(0, startTime + duration - createTime()),
+					percent = 1 - remaining / duration,
+					now = (end - start) * percent + start;
+
+				el.style[prop] = now + 'px';
+				step(now, percent);
+
+				if (percent < 1) {
+					requestAnimationFrame(tick);
+				} else {
+					done(now);
+				}
+			};
+
+			requestAnimationFrame(tick);
+		};
+
+		document.addEventListener('DOMContentLoaded', function() {
+			var el = document.querySelector('#anim');
+			el.addEventListener('click', function() {
+				animate(el, 'height', 200, 400, function(a, b, c) {
+					console.log('prop value: ' + a + ', percent: ' + (b * 100) + '%');
+				}, function(val) {
+					console.log('done! final value: '+ val);
+				});
+			}, false);
+		}, false);
+	</script>
+</head>
+<body>
+
+<div id="anim"></div>
+
+</body>
+</html>
