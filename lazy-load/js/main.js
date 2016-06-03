@@ -2,11 +2,24 @@ var $doc = $(document),
 	$win = $(window);
 
 var inScreen = function(el) {
-	var top = el.offset().top,
-		ret = false;
+	var offset = el.offset(),
+		height = el.outerHeight(),
+		a = offset.top,
+		b = a + height,
+		a2 = $doc.scrollTop(),
+		b2 = a2 + $win.height(),
+		ret = false,
+		visibleHeight, topRemaining, bottomRemaining;
 
-	if (top <= $doc.scrollTop() + $win.height()) {
-		ret = true;
+	if (b <= a2 || a >= b2 ) {
+		ret = false;
+	} else {
+		topRemaining = a - a2;
+		bottomRemaining = b - b2;
+		topRemaining = topRemaining > 0 ? topRemaining : 0;
+		bottomRemaining = bottomRemaining > 0 ? bottomRemaining : 0;
+		visibleHeight = b - a2 - topRemaining - bottomRemaining;
+		ret = visibleHeight > height / 3
 	}
 
 	return ret;
@@ -53,6 +66,16 @@ var throttle = function(fn, wait) {
 		}
 	};
 };
+
+var i = 0,
+	parent = document.querySelector('#container'),
+	el;
+
+while (i++ < 100) {
+	el = document.createElement('div');
+	el.id = 'div-' + i;
+	parent.appendChild(el);
+}
 
 showTarget();
 
