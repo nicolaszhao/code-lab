@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "出勤记录统计App",
+  "version": "1.0.0",
+  "description": "携程的个人出勤记录时间统计",
+  "icons": {"128": "icon_128.png"},
+  "permissions": [
+	"activeTab",
+	"http://hrint.sh.ctriptravel.com/hr.ehrms.site/*"
+  ],
+  "content_scripts": [
+	{
+	  "matches": [
+		"http://hrint.sh.ctriptravel.com/hr.ehrms.site/*"
+	  ],
+	  "js": ["js/libs/jquery-2.2.0.js", "js/inject-main.js"]
+	}
+  ]
+}

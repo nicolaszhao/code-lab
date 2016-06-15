@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>nodejs - learning</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<script>
+		fetch('/user/102').then(function(res) {
+			return res.json();
+		}).then(function(res) {
+			console.log(res);
+		});
+	</script>
+</body>
+</html>
