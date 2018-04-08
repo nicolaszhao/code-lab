@@ -1,0 +1,42 @@
+{% extends "./layout.html" %} 
+
+{% block body %}
+<header>
+  <h1>Welcome Koa Learning! Please Sign In</h1>
+  <div class="blocks">
+    <div class="wrapper">
+      <div class="block">
+        <div class="inner"></div>
+      </div>
+      <div class="block">
+        <div class="inner"></div>
+      </div>
+      <div class="block">
+        <div class="inner"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  <form action="/profile" method="post">
+    <fieldset>
+      <legend>Sign In</legend>
+      <div>
+        <label>Username:</label>
+        <div>
+          <input name="username" />
+        </div>
+      </div>
+      <div>
+        <label>Password:</label>
+        <div>
+          <input type="password" name="password" />
+        </div>
+      </div>
+      <div>
+        <button type="submit">Sign in</button>
+      </div>
+    </fieldset>
+  </form>
+</section>
+{% endblock %}

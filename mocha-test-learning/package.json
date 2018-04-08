@@ -1,0 +1,21 @@
+{
+  "name": "mocha-test-learning",
+  "version": "1.0.0",
+  "description": "mocha",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "mocha"
+  ],
+  "author": "Nicolas",
+  "license": "ISC"
+}
