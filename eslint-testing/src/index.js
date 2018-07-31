@@ -1,3 +1,3 @@
-const fn=() =>{
-  return 0
-}
+console.log(`
+  This is a ESlint precommit hook.
+`);
