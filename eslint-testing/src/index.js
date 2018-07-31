@@ -1,3 +1,3 @@
-const fn =() => {
-
+const fn=() =>{
+  return 0
 }
