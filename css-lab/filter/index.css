@@ -1,0 +1,56 @@
+body {
+  background: #000;
+}
+
+.fire {
+  width: 0;
+  height: 0;
+  border: solid 100px #000;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background: #b5932f;
+  transform: scaleX(.4);
+  filter: blur(20px) contrast(30);
+}
+
+.fire span {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: -200px;
+  background: #000;
+  border-radius: 50%;
+  transform: translate3d(0, 0, 0);
+  animation: fire 1s ease-in infinite forwards;
+}
+
+.fire span:nth-child(1) {
+  left: 0;
+}
+
+.fire span:nth-child(2) {
+  left: -50px;
+  animation-delay: .3s;
+}
+
+.fire span:nth-child(3) {
+  left: -80px;
+  animation-delay: .5s;
+
+}
+
+.fire span:nth-child(4) {
+  left: 50px;
+  animation-delay: .7s;
+}
+
+.fire span:nth-child(5) {
+  left: 80px;
+  animation-delay: 1.1s;
+}
+
+@keyframes fire {
+  to {
+    transform: translate3d(0, -200px, 0);
+  }
+}
