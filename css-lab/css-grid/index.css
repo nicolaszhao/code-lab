@@ -4,13 +4,21 @@ html, body, div {
   box-sizing: border-box;
 }
 
+.grid-wrapper {
+  width: 50vw;
+}
+
 .grid {
-  min-height: 100vh;
   display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
-  grid-gap: 10px;
-  justify-content: space-evenly;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  grid-template-areas: 
+    "a b c"
+    "d e f"
+    "g h i";
+
+  gap: 10px;
+  justify-content: center;
   align-content: space-evenly;
 }
 
@@ -19,4 +27,6 @@ html, body, div {
   border-radius: 10px;
 }
 
-
+.grid-item-1 {
+  grid-area: f;
+}
