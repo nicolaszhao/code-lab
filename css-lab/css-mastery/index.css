@@ -24,3 +24,24 @@
 .float .float-2 {
   display: inline;
 }
+
+.container {
+  width: 400px;
+  padding: 1em 0;
+  background: #ccc;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1 1 0%;
+  height: 4em;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+
+.col:first-child {
+  margin-right: 1em;
+}
