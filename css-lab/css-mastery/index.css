@@ -24,3 +24,36 @@
 .float .float-2 {
   display: inline;
 }
+
+.container {
+  width: 400px;
+  margin: 2em 0;
+  outline: 1px solid #000;
+}
+
+.row {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    ".. hd hd hd"
+    ".. st1 ... ..."
+    ".. ... ... st2";
+}
+
+.col {
+  min-height: 100px;
+  border: 1px solid #000;
+}
+
+.col:nth-child(1) {
+  grid-area: hd;
+}
+
+.col:nth-child(2) {
+  grid-area: st1;
+}
+
+.col:nth-child(3) {
+  grid-area: st2;
+}
