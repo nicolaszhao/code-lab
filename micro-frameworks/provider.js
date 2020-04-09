@@ -13,6 +13,18 @@ function Provider({ store, children }) {
   return React.cloneElement(children, { state, dispatch: store.dispatch });
 }
 
+const logger1 = store => next => action => {
+  console.log('before logger1');
+  next(action);
+  console.log('after logger1');
+};
+
+const logger2 = store => next => action => {
+  console.log('before logger2');
+  next(action);
+  console.log('after logger2');
+};
+
 {/* <Provider store={store}>
   <App />
 </Provider> */}
