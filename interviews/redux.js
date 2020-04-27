@@ -115,3 +115,21 @@ delay(1000).then(() => {
   store.dispatch({ type: 'DECREMENT' });
 });
 
+/* function Provider({ store, children }) {
+  const [state, setState] = useState(store.getState());
+
+  useEffect(() => {
+    store.subscribe(() => {
+      setState(store.getState());
+    });
+  }, []);
+
+  return React.cloneElement(children, { state, dispatch: store.dispatch });
+}
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  document.getElementById('root')
+); */
