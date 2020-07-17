@@ -7,9 +7,56 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CSS GRID</title>
   <link rel="stylesheet" href="index.css">
+  <style>
+    .flex {
+      margin: 2em;
+      width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex div {
+      height: 4em;
+      
+    }
+
+    .flex .left {
+      flex-basis: 100%;
+    }
+
+    .flex .right {
+      flex-basis: 100%;
+
+    }
+
+    .right-inner {
+      display: flex;
+    }
+
+    .right-inner div {
+      margin: .5em;
+      border: solid 1px #000;
+    }
+
+    .l {
+      flex: 1;
+    }
+    .r {
+      width: 50px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="flex">
+    <div class="left" style="width: 200px;"></div>
+    <div class="right">
+      <div class="right-inner">
+        <div class="l" style="width: 300px;"></div>
+        <div class="r"></div>
+      </div>
+    </div>
+  </div>
   <a href="">&laquo; Baidu</a>
   <div class="grid-wrapper">
     <div class="grid">

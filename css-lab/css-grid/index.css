@@ -13,9 +13,9 @@ html, body, div {
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   grid-template-areas: 
-    "a b c"
+    "a e c"
     "d e f"
-    "g h i";
+    "g e i";
 
   gap: 10px;
   justify-content: center;
