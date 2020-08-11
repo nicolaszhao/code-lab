@@ -1,12 +1,4 @@
-const texts = [
-  '())(()',
-  '(()',
-  '()))((',
-  '()()',
-  'a (b (c ( d ) c ) (b) ) a(())'
-];
-
-const fn = (text) => {
+const matchBrackets = (text) => {
   const ret = [];
   let i = 0;
   let regSpecials = /([()])/g;
@@ -28,6 +20,14 @@ const fn = (text) => {
   return ret.length === 0;
 };
 
+const texts = [
+  '())(()',
+  '(()',
+  '()))((',
+  '()()',
+  'a (b (c ( d ) c ) (b) ) a(())'
+];
+
 texts.forEach((text) => {
-  console.log(`result: `, fn(text));
+  console.log(`result: `, matchBrackets(text));
 });
