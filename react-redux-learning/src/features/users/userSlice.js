@@ -4,7 +4,7 @@ import { client } from '../../api/client';
 const initialState = [];
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-  const response = await client('/api/users');
+  const response = await client.get('/api/users');
   return response.users;
 });
 
@@ -18,5 +18,10 @@ const usersSlice = createSlice({
     },
   },
 });
+
+export const selectAllUsers = state => state.users;
+
+export const selectUserById = (state, userId) => 
+  state.users.find(user => user.id === userId);
 
 export default usersSlice.reducer;
