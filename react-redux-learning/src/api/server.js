@@ -186,7 +186,7 @@ createServer({
           message: template,
           user: user.id,
           read: false,
-          isNow: true,
+          isNew: true,
         };
       });
 
