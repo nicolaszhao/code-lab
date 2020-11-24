@@ -7,3 +7,14 @@ function curry(func) {
       : func(...args);
   };
 }
+
+function curryV2(fn) {
+  return (function nextCurried(...prevArgs) {
+    return (...nextArgs) => {
+      const args = [...prevArgs, ...nextArgs];
+      return args.length >= fn.length
+        ? fn(...args)
+        : nextCurried(...args);
+    };
+  })([]);
+}
