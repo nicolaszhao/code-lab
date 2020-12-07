@@ -57,7 +57,7 @@ const todoSlice = createSlice({
     },
     [fetchTodos.fulfilled]: (state, action) => {
       todosAdapter.setAll(state, action.payload);
-      state.status = 'idle';
+      state.status = 'succeeded';
     },
     [saveNewTodo.fulfilled]: todosAdapter.addOne,
   },
@@ -74,17 +74,11 @@ export const {
 
 export default todoSlice.reducer;
 
-const selectTodoEntities = (state) => state.todos.entities
-
 export const {
   selectAll: selectTodos,
   selectById: selectTodoById,
+  selectIds: selectTodoIds,
 } = todosAdapter.getSelectors(state => state.todos);
-
-export const selectTodoIds = createSelector(
-  selectTodos,
-  todos => todos.map(todo => todo.id),
-);
 
 export const selectFilteredTodos = createSelector(
   selectTodos,

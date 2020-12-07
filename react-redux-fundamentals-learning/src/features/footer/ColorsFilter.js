@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ColorsFilters } from '../filters/filtersSlice';
 
 export const ColorsFilter = ({ colors, onChange }) => {

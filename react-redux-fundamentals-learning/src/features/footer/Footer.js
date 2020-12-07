@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StatusFilter } from './StatusFilter';
 import { ColorsFilter } from './ColorsFilter';
-import { selectTodos } from '../todos/todosSlice';
+import { selectTodos, allTodosCompleted, completedTodosCleared } from '../todos/todosSlice';
+import { statusFilterChanged, colorFilterChanged } from '../filters/filtersSlice';
 
 export const Footer = () => {
   const dispatch = useDispatch();
@@ -12,22 +13,17 @@ export const Footer = () => {
   });
   const { status, colors } = useSelector(state => state.filters);
   const onStatusChange = status => 
-    dispatch({ type: 'filters/statusFilterChanged', payload: status });
+    dispatch(statusFilterChanged(status));
   
   const onColorsChange = (color, changeType) => {
-    dispatch({ 
-      type: 'filters/colorFilterChanged', 
-      payload: { color, changeType }, 
-    });
+    dispatch(colorFilterChanged({ color, changeType }));
   };
 
   const onAllCompletedMark = () => {
-    dispatch({
-      type: 'todos/allCompleted'
-    });
+    dispatch(allTodosCompleted());
   };
 
-  const onCompletedClear = () => dispatch({ type: 'todos/completedCleared' });
+  const onCompletedClear = () => dispatch(completedTodosCleared());
 
   return (
     <footer>

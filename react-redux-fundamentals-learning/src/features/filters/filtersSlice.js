@@ -1,3 +1,5 @@
+import { createSlice } from '@reduxjs/toolkit';
+
 export const StatusFilters = {
   All: 'All',
   Active: 'Active',
@@ -17,22 +19,24 @@ const initialState = {
   colors: [],
 };
 
-export default function filtersReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'filters/statusFilterChanged': {
-      return {
-        ...state,
-        status: action.payload
-      }
-    }
-    case 'filters/colorFilterChanged':
-      return {
-        ...state,
-        colors: action.payload.changeType === 'selected' 
-          ? [...state.colors, action.payload.color]
-          : state.colors.filter(color => color !== action.payload.color),
-      };
-    default:
-      return state
-  }
-}
+const filtersSlice = createSlice({
+  name: 'filters',
+  initialState,
+  reducers: {
+    statusFilterChanged(state, action) {
+      state.status = action.payload;
+    },
+    colorFilterChanged(state, action) {
+      state.colors = action.payload.changeType === 'selected' 
+        ? [...state.colors, action.payload.color]
+        : state.colors.filter(color => color !== action.payload.color);
+    },
+  },
+});
+
+export const {
+  statusFilterChanged,
+  colorFilterChanged,
+} = filtersSlice.actions;
+
+export default filtersSlice.reducer;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { TodoListItem } from './TodoListItem';
-import { selectFilteredTodoIds, fetchTodos } from './todosSlice';
+import { selectFilteredTodoIds, selectTodoIds, fetchTodos } from './todosSlice';
 
 export const TodoList = () => {
   const todoIds = useSelector(selectFilteredTodoIds);
@@ -10,10 +10,12 @@ export const TodoList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(loadingStatus);
+
     if (loadingStatus === 'idle') {
       dispatch(fetchTodos());
     }
-  }, []);
+  }, [loadingStatus, dispatch]);
 
   if (loadingStatus === 'loading') {
     return (

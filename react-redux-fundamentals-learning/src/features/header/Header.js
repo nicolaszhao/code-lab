@@ -4,11 +4,18 @@ import { saveNewTodo } from '../todos/todosSlice';
 
 export const Header = () => {
   const [text, setText] = useState('');
+  const [status, setStatus] = useState('idle');
+  const canSave = Boolean(text) && status === 'idle';
+
   const dispatch = useDispatch();
+
   const handleChange = e => setText(e.target.value);
+
   const handleKeyDown = async e => {
-    if (e.which === 13 && text) {
+    if (e.which === 13 && canSave) {
+      setStatus('pending');
       await dispatch(saveNewTodo(text));
+      setStatus('idle');
       setText('');
     }
   };
@@ -23,6 +30,7 @@ export const Header = () => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
+      {status === 'pending' && <span>Saving...</span>}
     </header>
   );
 };

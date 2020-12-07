@@ -1,12 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
-import todosReducer from './features/todos/todosSlice';
-import filtersReducer from './features/filters/filtersSlice';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { logger } from './addons/middleware';
+import { monitorReducerEnhancer } from './addons/enhancers';
+import rootReducer from './reducers';
 
-const store = configureStore({
-  reducer: {
-    todos: todosReducer,
-    filters: filtersReducer,
-  },
-});
+export default function configureAppStore(preloadedState) {
+  const store = configureStore({
+    reducer: rootReducer,
+    middleware: [logger, ...getDefaultMiddleware()],
+    preloadedState,
+    enhancers: [monitorReducerEnhancer]
+  });
 
-export default store;
+  if (process.env.NODE_ENV !== 'production' && module.hot) {
+    module.hot.accept('./reducers', () => store.replaceReducer(rootReducer));
+  }
+
+  return store;
+}

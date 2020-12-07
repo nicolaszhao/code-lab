@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusFilters } from '../filters/filtersSlice';
 
 export const StatusFilter = ({ status, onChange }) => {
