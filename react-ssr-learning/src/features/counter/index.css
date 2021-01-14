@@ -1,0 +1,19 @@
+.counter {
+  display: flex;
+  width: 10em;
+  margin: 3em auto;
+}
+
+.counter button {
+  padding: .3em .8em;
+  font-size: 1.5em;
+  border-radius: .3em;
+  border: solid 1px rgba(0, 0, 0, .3);
+}
+
+.counter-value {
+  display: flex;
+  align-items: center;
+  padding: 0 1.4em;
+  font-size: 1.5em;
+}
