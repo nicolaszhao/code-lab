@@ -115,3 +115,34 @@ Promise.race = function (promises) {
     });
   });
 };
+
+
+const middlewares = [
+  async next => {
+    console.log(1);
+    await next();
+    console.log(4);
+  },
+
+  async next => {
+    console.log(2);
+    await next();
+    console.log(3);
+  },
+];
+
+function process(middlewares) {
+  function dispatch(index) {
+    const middleware = middlewares[index];
+    if (!middleware) {
+      return;
+    }
+    return middleware(() => dispatch(index + 1));
+  }
+  return dispatch(0);
+}
+
+// expected: 1 2 3 4 end
+process(middlewares).then(() => {
+  console.log('end');
+});
