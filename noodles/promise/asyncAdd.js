@@ -19,18 +19,19 @@ async function sum(...num) {
   }
 
   const tasks = [];
-  const remain = num.length % 2;
-  const taskNumSizes = num.length - remain;
-
-  for (let i = 0; i < taskNumSizes; i += 2) {
-    tasks.push(asyncAdd(num[i], num[i + 1]));
+  const taskNum = num.splice(0, num.length - num.length % 2);
+  
+  while (taskNum.length) {
+    tasks.push(asyncAdd(taskNum.shift(), taskNum.shift()));
   }
 
   let ret = await Promise.all(tasks);
   ret = ret.reduce((a, b) => a + b);
-  if (remain) {
-    ret = await asyncAdd(ret, num[num.length - remain]);
+
+  if (num.length) {
+    ret = await asyncAdd(ret, num[0]);
   }
+  
   return ret;
 }
 
