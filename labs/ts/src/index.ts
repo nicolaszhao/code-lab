@@ -46,4 +46,6 @@ const b: k1 = 'a'
 
 type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
 
-
+async function P(arg: string): Promise<string> {
+  return Promise.resolve(arg);
+}
