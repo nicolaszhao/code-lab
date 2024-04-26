@@ -30,3 +30,20 @@ html, body, div {
 .grid-item-1 {
   grid-area: f;
 }
+
+.stack-container {
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+.stack-item {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.stack-item:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
