@@ -12,5 +12,11 @@
 }
 
 body {
-	font: 28px/1.2 beaconscript;
+  font-family: beaconscript, Arial, 'STFangsong', sans-serif;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+p {
+  font-weight: 200;
 }
