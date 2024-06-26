@@ -7,7 +7,7 @@ function searchPalindromeString(str) {
     let text = '';
     for (let j = i; j < len; j++) {
       text += str[j];
-      if (text === [...text].reverse().join('') 
+      if (text === [...text].reverse().join('')
         && text.length > ret.length) {
         ret = text;
       }
@@ -34,19 +34,20 @@ function searchPalindromeString2(str = '') {
 
       left += str[--l];
       right += str[++r];
-      
+
       if (left !== right &&
         center !== right &&
         left !== center &&
-        center + prevLeft !== right && 
+        center + prevLeft !== right &&
         left !== center + prevRight) {
         break;
       }
 
       let start = l;
       let end = r;
-      
+
       if (left !== right) {
+        // aabbaa
         if (left === center || left === center + prevRight) {
           end--;
         } else if (center === right || center + prevLeft === right) {
@@ -60,16 +61,74 @@ function searchPalindromeString2(str = '') {
         ret = cur;
       }
     }
-  }  
+  }
 
   return ret;
+}
+
+function searchPalindromeString3(str) {
+  let ret = '';
+
+  for (let i = 0; i < str.length; i++) {
+    let center = str[i];
+    let current = '';
+    let left = '';
+    let right = '';
+    let leftCursor = i;
+    let rightCursor = i;
+    let centerCursor = i;
+
+    while (leftCursor >= 0 && rightCursor < str.length) {
+      if (str[centerCursor + 1] === str[i]) {
+        center += str[++centerCursor];
+        rightCursor = centerCursor;
+        continue;
+      }
+      left += str[--leftCursor] || '';
+      right += str[++rightCursor] || '';
+
+      if (left && right && left !== right) {
+        break;
+      }
+
+      let start = leftCursor;
+      let end = rightCursor + 1;
+
+      // "baa" or "abb"
+      // cbaabac
+      if (left !== right) {
+        if (left) {
+          start = start + 1;
+        }
+        if (right) {
+          end = end - 1;
+        }
+      }
+
+      if (start < 0) {
+        start = 0;
+      }
+      if (end >= str.length) {
+        end = str.length;
+      }
+
+      current = str.slice(start, end);
+      if (current.length > ret.length) {
+        ret = current;
+      }
+    }
+  }
+
+  return ret;
+
 }
 
 [
   'a',
   'aa',
-  'baa',
-  'aab',
+  'baaa',
+  'aabb',
+  'aaab',
   'abba',
   '12321aba',
   'afjdsaabbaa',
@@ -89,9 +148,10 @@ function searchPalindromeString2(str = '') {
   'aaa',
   'aaaa',
   'aaaaa',
-  'aaaaaa1'
+  'aaaaaa1',
+  'baaaaabbac',
 ].forEach((str, i) => {
-  const r = searchPalindromeString2(str);
+  const r = searchPalindromeString3(str);
   console.log(`${i + 1}: ${str} -> "${r}"`);
 });
 

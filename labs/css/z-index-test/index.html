@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>z-index Test</title>
+    <style>
+      .box {
+        transform: scale(1);
+        width: 200px;
+        height: 100px;
+        z-index: 1;
+      }
+
+      .fixed-box {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.15);
+        left: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>z-index Test</h1>
+    <div class="box">
+      <div class="fixed-box"></div>
+    </div>
+  </body>
+</html>
