@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Swiper</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="swiper-container" style="timeline-scope: --t1, --t2, --t3">
+      <div class="swiper">
+        <div class="swiper-item" style="--t: --t1">
+          <div class="card">1</div>
+        </div>
+        <div class="swiper-item" style="--t: --t2">
+          <div class="card">2</div>
+        </div>
+        <div class="swiper-item" style="--t: --t3">
+          <div class="card">3</div>
+        </div>
+      </div>
+      <div class="pagination">
+        <i class="dot" style="--t: --t1"></i>
+        <i class="dot" style="--t: --t2"></i>
+        <i class="dot" style="--t: --t3"></i>
+      </div>
+    </div>
+  </body>
+</html>

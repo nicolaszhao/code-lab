@@ -1,0 +1,62 @@
+.swiper {
+  display: flex;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+  background: #666;
+  scroll-snap-type: x mandatory;
+  scroll-timeline: --scroller x;
+
+  &::-webkit-scrollbar {
+    /* width: 0;
+    height: 0; */
+  }
+}
+
+.swiper-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  view-timeline: var(--t) x;
+
+  .card {
+    width: 70%;
+    height: 70vh;
+    border-radius: 12px;
+    background-color: #9747ff;
+  }
+}
+
+.pagination {
+  position: fixed;
+  display: inline-flex;
+  justify-content: center;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 4px;
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.36);
+    transition: 0.3s;
+    animation: move 3s;
+    animation-timeline: var(--t);
+  }
+}
+
+@keyframes move {
+  50% {
+    width: 12px;
+    border-radius: 3px 0px;
+    border-color: rgba(0, 0, 0, 0.12);
+    background: #fff;
+  }
+}
