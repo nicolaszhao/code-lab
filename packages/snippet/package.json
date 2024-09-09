@@ -5,5 +5,10 @@
   "license": "UNLICENSED",
   "author": "NZ",
   "main": "index.js",
-  "scripts": {}
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^9.10.0"
+  }
 }

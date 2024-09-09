@@ -1,0 +1,21 @@
+{
+  "name": "@code-lab/eslint-config",
+  "version": "0.1.0",
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "NZ",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {},
+  "peerDependencies": {
+    "eslint": ">= 9"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@types/eslint__js": "^8.42.3",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.9.0",
+    "typescript": "~5.4.0",
+    "typescript-eslint": "^8.4.0"
+  }
+}

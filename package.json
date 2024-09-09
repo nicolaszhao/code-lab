@@ -1,7 +1,10 @@
 {
   "name": "NZ's CODE LAB",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "lint": "turbo run lint",
+    "format": "prettier --write ."
+  },
   "devDependencies": {
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^4.0.0",
