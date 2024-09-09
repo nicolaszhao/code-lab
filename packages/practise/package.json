@@ -1,0 +1,9 @@
+{
+  "name": "@code-lab/practise",
+  "version": "0.1.0",
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "NZ",
+  "main": "index.js",
+  "scripts": {}
+}

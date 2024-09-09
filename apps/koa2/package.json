@@ -1,0 +1,27 @@
+{
+  "name": "koa2-learning",
+  "version": "1.0.0",
+  "private": true,
+  "description": "learning koa2",
+  "keywords": [
+    "koa2"
+  ],
+  "license": "ISC",
+  "author": "Nicolas",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon app.js"
+  },
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-compose": "^4.0.0",
+    "koa-mount": "^3.0.0",
+    "koa-nunjucks-2": "^3.0.2",
+    "koa-router": "^7.2.1",
+    "koa-static": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
