@@ -6,9 +6,13 @@
   "author": "NZ",
   "main": "index.js",
   "scripts": {
+    "check-types": "tsc --noEmit",
     "lint": "eslint ."
   },
   "devDependencies": {
-    "eslint": "^9.10.0"
+    "@code-lab/eslint-config": "workspace:^",
+    "@code-lab/typescript-config": "workspace:^",
+    "eslint": "^9.10.0",
+    "typescript": "~5.4.0"
   }
 }

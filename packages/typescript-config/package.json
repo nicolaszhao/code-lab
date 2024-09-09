@@ -1,0 +1,12 @@
+{
+  "name": "@code-lab/typescript-config",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "NZ",
+  "scripts": {},
+  "devDependencies": {
+    "@tsconfig/node-lts": "^20.1.3"
+  }
+}

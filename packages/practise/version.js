@@ -1,10 +1,10 @@
-function compareVersions(a, b) {
+export function compareVersions(a, b) {
   const toNumbers = (arr) => arr.map(n => +n);
   const compare = (a, b) => {
     const ret = a - b;
-    return ret < 0 
+    return ret < 0
       ? -1
-      : (ret > 0 
+      : (ret > 0
         ? 1
         : 0);
   };

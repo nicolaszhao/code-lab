@@ -16,7 +16,7 @@
   <button @click="add">+</button>
   <button @click="remove">-</button>
   <TransitionGroup name="list" tag="ul">
-    <li v-for="(item, index) in items" :key="item">
+    <li v-for="(item) in items" :key="item">
       {{ item }}
     </li>
   </TransitionGroup>

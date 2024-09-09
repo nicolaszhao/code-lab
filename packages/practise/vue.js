@@ -2,7 +2,7 @@
 // 用 Compile 去解析 el 的子元素为 fragment
 // 解析后，为标记中的动态模板添加 Watcher
 // 参考: https://segmentfault.com/a/1190000013276124
-class Vue {
+export class Vue {
   constructor(options) {
     const { data } = options;
     this.data = data;
@@ -25,17 +25,16 @@ class Vue {
     Object.keys(data).forEach((key) => this.defineReactive(data, key, data[key]));
   }
   defineReactive(data, key, val) {
-    const that = this;
     Object.defineProperty(data, key, {
       get() {
         return data[key];
       },
-      set(newVal) {
+      set: (newVal) => {
         if (val === newVal) {
           return;
         }
         val = newVal;
-        that.update(key, newVal);        
+        this.update(key, newVal);
       },
     });
   }

@@ -1,4 +1,4 @@
-function createSubscribe() {
+export function createSubscribe() {
   const listeners = [];
 
   function subscribe(cb) {

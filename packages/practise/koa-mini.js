@@ -1,4 +1,4 @@
-const http = require('http');
+import http from 'node:http';
 
 class Context {
   constructor(req, res) {

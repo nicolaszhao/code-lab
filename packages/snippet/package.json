@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
+    "@code-lab/eslint-config": "workspace:^",
     "eslint": "^9.10.0"
   }
 }

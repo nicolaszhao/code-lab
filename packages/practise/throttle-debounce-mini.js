@@ -1,4 +1,4 @@
-function throttled(delay, fn) {
+export function throttled(delay, fn) {
   let lastCall = 0;
   return function (...args) {
     const now = (new Date).getTime();
@@ -10,7 +10,7 @@ function throttled(delay, fn) {
   }
 }
 
-function debounced(delay, fn) {
+export function debounced(delay, fn) {
   let timerId;
   return function (...args) {
     if (timerId) {

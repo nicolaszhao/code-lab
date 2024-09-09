@@ -8,6 +8,8 @@ const node1 = {
     },
   },
 };
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const node2 = {
   value: 1,
   next: {
@@ -67,7 +69,7 @@ function mergeTwoLinkNode(l1, l2) {
     cur = cur.next;
   }
 
-  // 将 l1 和 l2 中剩余的链向 head 的最后一个 
+  // 将 l1 和 l2 中剩余的链向 head 的最后一个
   cur.next = l1 || l2;
 
   return head.next;

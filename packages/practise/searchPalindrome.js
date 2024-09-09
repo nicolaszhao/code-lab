@@ -1,5 +1,5 @@
 // 求字符串最长回文子串
-function searchPalindromeString(str) {
+export function searchPalindromeString(str) {
   const len = str.length;
   let ret = '';
 
@@ -16,7 +16,7 @@ function searchPalindromeString(str) {
   return ret;
 }
 
-function searchPalindromeString2(str = '') {
+export function searchPalindromeString2(str = '') {
   const len = str.length;
   let ret = str[0];
 
@@ -80,6 +80,7 @@ function searchPalindromeString3(str) {
 
     while (leftCursor >= 0 && rightCursor < str.length) {
       if (str[centerCursor + 1] === str[i]) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         center += str[++centerCursor];
         rightCursor = centerCursor;
         continue;

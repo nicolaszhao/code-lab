@@ -1,4 +1,4 @@
-function deepMerge(target, ...sources) {
+export function deepMerge(target, ...sources) {
   if (!sources.length) {
     return target;
   }
@@ -14,7 +14,7 @@ function deepMerge(target, ...sources) {
   return deepMerge(target, ...sources);
 }
 
-class Events {
+export class Events {
   constructor() {
     this.handlers = {};
   }

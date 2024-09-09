@@ -2,8 +2,9 @@
   "name": "NZ's CODE LAB",
   "private": true,
   "scripts": {
-    "lint": "turbo run lint",
-    "format": "prettier --write ."
+    "check-types": "turbo run check-types",
+    "format": "prettier --write .",
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

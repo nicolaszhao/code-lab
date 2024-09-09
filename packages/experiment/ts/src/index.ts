@@ -1,7 +1,7 @@
 export type BasicPrimitive = number | string | boolean;
 
 export function doStuff(value: BasicPrimitive) {
-  if (value < 5) {
+  if ((value as number) < 5) {
     return undefined;
   }
   return value;
@@ -9,9 +9,13 @@ export function doStuff(value: BasicPrimitive) {
 
 let a: [string, ...number[], boolean] = ['hello world', 10, false];
 
+a = ['hello world', 10, 20, 30, 40, false];
+
+console.log(a);
+
 interface Person {
   name: string;
-  [x: string]: any;
+  [x: string]: unknown;
 }
 
 function processOptions(person: Person) {
@@ -42,10 +46,19 @@ const myNumberClass = new IdentityClass('xxx');
 myNumberClass.getIdentity();
 
 type k1 = keyof { [x: string]: 1 };
-const b: k1 = 'a'
+const b: k1 = 'a';
+
+console.log(b);
 
 type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
 
-async function P(arg: string): Promise<string> {
+async function p(arg: string): Promise<string> {
   return Promise.resolve(arg);
 }
+
+p('1');
+
+type T = ReturnType<typeof p>;
+
+const x: T = Promise.resolve('1');
+console.log(x);

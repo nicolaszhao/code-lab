@@ -2,7 +2,7 @@ function PromiseA(fnc) {
   const callbacks = [];
   let state = 'pending';
   let value;
-  
+
   this.then = function (onFulfilled, onRejected) {
     return new Promise((resolve, reject) => {
       handle({
@@ -29,7 +29,7 @@ function PromiseA(fnc) {
     const next = state === 'fulfilled'
       ? callback.resolve
       : callback.reject;
-    
+
     if (!cb) {
       next(value);
       return;
@@ -95,7 +95,7 @@ new PromiseA((resolve) => {
   console.log('result2', data)
 })
 
-function test(id) {
+function test() {
   return new PromiseA(((resolve) => {
     setTimeout(() => {
       resolve({ test: 2 })

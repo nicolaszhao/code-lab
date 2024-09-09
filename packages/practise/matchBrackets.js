@@ -1,6 +1,5 @@
 const matchBrackets = (text) => {
   const ret = [];
-  let i = 0;
   let regSpecials = /([()])/g;
   let specialsMatch = regSpecials.exec(text);
 

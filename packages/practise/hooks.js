@@ -1,4 +1,4 @@
-function hooks() {
+export function hooks() {
   const store = [];
   let cursor = 0;
 

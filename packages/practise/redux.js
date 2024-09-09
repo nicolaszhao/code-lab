@@ -82,12 +82,14 @@ const reducer = combineReducer({
   counter: counterReducer
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const logger1 = store => next => action => {
   console.log(`logger 1 start...`);
   next(action);
   console.log(`logger 1 end...`);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const logger2 = store => next => action => {
   console.log(`logger 2 start...`);
   next(action);
@@ -101,7 +103,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-  console.log(`state change: 
+  console.log(`state change:
   ${JSON.stringify(store.getState(), null, 2)}
   `);
 });
@@ -130,6 +132,6 @@ delay(1000).then(() => {
 ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>, 
+  </Provider>,
   document.getElementById('root')
 ); */
