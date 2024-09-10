@@ -1,6 +1,7 @@
 {
-  "name": "NZ's CODE LAB",
+  "name": "code-lab",
   "private": true,
+  "description": "NZ's code lab",
   "scripts": {
     "check-types": "turbo run check-types",
     "format": "prettier --write .",
@@ -8,6 +9,8 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.10",
     "prettier": "^3.2.5",
