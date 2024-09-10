@@ -4,9 +4,12 @@
   "scripts": {
     "check-types": "turbo run check-types",
     "format": "prettier --write .",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^4.0.0",
     "prettier-plugin-packagejson": "^2.5.2",
