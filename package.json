@@ -3,6 +3,7 @@
   "private": true,
   "description": "NZ's code lab",
   "scripts": {
+    "build": "turbo run build",
     "check-types": "turbo run check-types",
     "format": "prettier --write .",
     "lint": "turbo run lint",
