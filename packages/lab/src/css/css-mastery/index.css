@@ -1,0 +1,78 @@
+.position div,
+.float div {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border: dotted 1px rgba(0, 0, 0, 0.5);
+  background: #fff;
+}
+
+.position div:not(:first-child):not(:last-child) {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+.float div {
+  display: block;
+}
+
+.float div:first-child {
+  float: left;
+}
+
+.float .float-2 {
+  display: inline;
+}
+
+.container {
+  width: 400px;
+  margin: 2em 0;
+  outline: 1px solid #000;
+}
+
+.row {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    '.. hd hd hd'
+    '.. st1 ... ...'
+    '.. ... ... st2';
+}
+
+.col {
+  min-height: 100px;
+  border: 1px solid #000;
+}
+
+.col:nth-child(1) {
+  grid-area: hd;
+}
+
+.col:nth-child(2) {
+  grid-area: st1;
+}
+
+.col:nth-child(3) {
+  grid-area: st2;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  animation: jump 2s ease-in-out infinite;
+}
+
+@keyframes jump {
+  from {
+    transform: rotate(0) translateX(-170%) rotate(0) scale(1) skewX(15deg);
+  }
+
+  70%,
+  100% {
+    transform: rotate(175deg) translateX(-170%) rotate(-175deg) scale(0.5)
+      skewX(0);
+  }
+}

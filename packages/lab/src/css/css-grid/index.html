@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS GRID</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      .flex {
+        margin: 2em;
+        width: 500px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .flex div {
+        height: 4em;
+      }
+
+      .flex .left {
+        flex-basis: 100%;
+      }
+
+      .flex .right {
+        flex-basis: 100%;
+      }
+
+      .right-inner {
+        display: flex;
+      }
+
+      .right-inner div {
+        margin: 0.5em;
+        border: solid 1px #000;
+      }
+
+      .l {
+        flex: 1;
+      }
+      .r {
+        width: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="flex">
+      <div class="left" style="width: 200px"></div>
+      <div class="right">
+        <div class="right-inner">
+          <div class="l" style="width: 300px"></div>
+          <div class="r"></div>
+        </div>
+      </div>
+    </div>
+    <a href="">&laquo; Baidu</a>
+    <div class="grid-wrapper">
+      <div class="grid">
+        <div class="grid-item-1">1</div>
+        <div class="grid-item-2">2</div>
+        <div class="grid-item-3">3</div>
+        <div class="grid-item-4">4</div>
+        <div class="grid-item-5">5</div>
+        <div class="grid-item-6">6</div>
+        <div class="grid-item-7">7</div>
+        <div class="grid-item-8">8</div>
+        <div class="grid-item-9">9</div>
+      </div>
+    </div>
+    <a href="">Google &raquo;</a>
+
+    <div class="stack-container">
+      <div class="stack-item">a</div>
+      <div class="stack-item">b</div>
+      <div class="stack-item">c</div>
+    </div>
+  </body>
+</html>
