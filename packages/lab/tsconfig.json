@@ -1,4 +1,7 @@
 {
-  "extends": "@code-lab/typescript-config/base.json",
+  "extends": "@code-lab/typescript-config/lib",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
   "include": ["src/**/*.ts"]
 }
