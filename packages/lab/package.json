@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "build": "rolldown -c && tsc",
-    "check-types": "tsc --noEmit",
+    "check-types": "tsc",
     "lint": "eslint ."
   },
   "devDependencies": {
