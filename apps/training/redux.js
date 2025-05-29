@@ -2,17 +2,18 @@ function createStore(reducer, initState, enhancer) {
   if (enhancer) {
     return enhancer(createStore)(reducer, initState);
   }
-  let listeners = [];
+
   let state;
+  let listeners = [];
 
   const getState = () => state;
-  const dispatch = (action) => {
-    state = reducer(state, action);
-    listeners.forEach((listener) => listener());
-  };
   const subscribe = (cb) => {
     listeners.push(cb);
     return () => (listeners = listeners.filter((listener) => listener !== cb));
+  };
+  const dispatch = (action) => {
+    state = reducer(state, action);
+    listeners.forEach((listener) => listener());
   };
 
   dispatch({ type: `@@redux/__INIT__${Math.random()}` });
