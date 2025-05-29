@@ -26,7 +26,7 @@
   "devDependencies": {
     "@code-lab/eslint-config": "workspace:^",
     "@code-lab/typescript-config": "workspace:^",
-    "eslint": "^9.10.0",
+    "eslint": "^9.27.0",
     "rolldown": "1.0.0-beta.7",
     "rollup-plugin-clear": "^2.0.7",
     "typescript": "~5.4.0"
