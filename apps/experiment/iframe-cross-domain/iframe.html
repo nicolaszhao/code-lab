@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      document.addEventListener(
+        'DOMContentLoaded',
+        function () {
+          document.querySelector('button').addEventListener(
+            'click',
+            function () {
+              var iframe = document.createElement('iframe');
+              var data = JSON.stringify({ id: 1, name: 'Nicolas' });
+              iframe.src =
+                'http://127.0.0.1:8080/sample-code/iframe-message/proxy.html#' +
+                data;
+              iframe.style.display = 'none';
+              document.body.appendChild(iframe);
+            },
+            false,
+          );
+        },
+        false,
+      );
+    </script>
+  </head>
+  <body>
+    <button>Send Message</button>
+  </body>
+</html>

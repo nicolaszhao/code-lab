@@ -1,9 +1,0 @@
-.drag-uploader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
-  margin: 25px;
-  padding: 25px;
-  border: dotted 1px #eee;
-}

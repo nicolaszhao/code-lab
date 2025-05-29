@@ -1,8 +1,8 @@
 const thunkify = (fn) => {
   return (...args) => {
     return (callback) => {
-      return fn.call(null, ...args, callback);  
-    }
+      return fn.call(null, ...args, callback);
+    };
   };
 };
 
@@ -38,4 +38,4 @@ co(function* () {
   console.log(`b ---> ${b}`);
 
   return a + b;
-}).then(res => console.log(`done! res --> ${res}`));
+}).then((res) => console.log(`done! res --> ${res}`));

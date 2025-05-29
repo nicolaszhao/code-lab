@@ -1,0 +1,29 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.drag-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  width: 400px;
+  margin: 32px auto;
+  padding: 32px;
+  border: dashed 1px #bbb;
+  border-radius: 0.5em;
+  transition: 0.4s;
+}
+
+.drag-upload-over {
+  background: #f0f0f0;
+  border: dashed 1px #aaa;
+}
+
+.drag-upload img {
+  display: block;
+  width: 150px;
+  padding: 8px;
+  border: 1px solid #f1f1f1;
+}

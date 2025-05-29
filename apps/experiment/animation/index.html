@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        padding: 1em;
+      }
+
+      .box {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 4em;
+        left: 1em;
+        border: 1px solid #222;
+        background: #fc0;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "@code-lab/lab": "../node_modules/@code-lab/lab/dist/index.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import { move } from '@code-lab/lab';
+      import { $ } from './index.js';
+
+      $.ready(function () {
+        $('button').on('click', function () {
+          move('.box', 'left', {
+            distance: 100,
+            easing: 'easeOutBounce',
+            onStep: function (progress) {
+              console.log(`Step: -- ${progress}%`);
+            },
+            onComplete: function () {
+              console.log(`Completed!`);
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>run</button>
+    <div class="box"></div>
+  </body>
+</html>
